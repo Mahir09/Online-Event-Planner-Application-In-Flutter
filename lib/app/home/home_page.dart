@@ -3,7 +3,7 @@ import 'package:login_screen/app/home/cupertino_home_scaffold.dart';
 import 'package:login_screen/app/home/guests/guests_page.dart';
 import 'package:login_screen/app/home/models/event.dart';
 import 'package:login_screen/app/home/tab_item.dart';
-import 'package:login_screen/screens/temp_home_page.dart';
+import 'package:login_screen/app/home/tasks/tasks_page.dart';
 import 'package:login_screen/services/database.dart';
 import 'package:provider/provider.dart';
 
@@ -40,9 +40,9 @@ class _HomePageState extends State<HomePage> {
   Map<TabItem, WidgetBuilder> get widgetBuilders {
     return {
       TabItem.guests: (_) => GuestsPage(database: widget.database, event: widget.event),
-      TabItem.tasks: (_) => TempHomePage(),
-      TabItem.budgets: (_) => TempHomePage(),
-      TabItem.vendors: (_) => TempHomePage(),
+      TabItem.tasks: (_) => TasksPage(database: widget.database, event: widget.event),
+      TabItem.budgets: (_) => Container(),
+      TabItem.vendors: (_) => Container(),
     };
   }
 
