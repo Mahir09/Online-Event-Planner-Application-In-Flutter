@@ -2,6 +2,7 @@ import 'package:login_screen/app/home/models/budget.dart';
 import 'package:login_screen/app/home/models/event.dart';
 import 'package:login_screen/app/home/models/guest.dart';
 import 'package:login_screen/app/home/models/task.dart';
+import 'package:login_screen/app/home/models/vendors.dart';
 import 'package:login_screen/services/api_path.dart';
 import 'package:login_screen/services/firestore_service.dart';
 import 'package:meta/meta.dart';
@@ -27,6 +28,9 @@ abstract class Database {
   Future<void> deleteBudget(Event event, Budget budget);
   Stream<List<Budget>> budgetsStream({@required String eventId});
 
+  Future<void> setVendor(Event event, Vendor vendor);
+  Future<void> deleteVendor(Event event, Vendor vendor);
+  Stream<List<Vendor>> vendorsStream({@required String eventId});
 }
 
 String documentIdFromCurrentDate() => DateTime.now().toIso8601String();
@@ -123,5 +127,23 @@ class FirestoreDatabase implements Database {
       _service.collectionStream(
         path: APIPath.budgets(uid, eventId),
         builder: (data, documentId) => Budget.fromMap(data, documentId),
+      );
+
+  @override
+  Future<void> setVendor(Event event, Vendor vendor) => _service.setData(
+        path: APIPath.vendor(uid, event.id, vendor.id),
+        data: vendor.toMap(),
+      );
+
+  @override
+  Future<void> deleteVendor(Event event, Vendor vendor) => _service.deleteData(
+        path: APIPath.vendor(uid, event.id, vendor.id),
+      );
+
+  @override
+  Stream<List<Vendor>> vendorsStream({@required String eventId}) =>
+      _service.collectionStream(
+        path: APIPath.vendors(uid, eventId),
+        builder: (data, documentId) => Vendor.fromMap(data, documentId),
       );
 }

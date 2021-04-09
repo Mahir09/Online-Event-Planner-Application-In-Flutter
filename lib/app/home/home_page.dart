@@ -5,6 +5,7 @@ import 'package:login_screen/app/home/guests/guests_page.dart';
 import 'package:login_screen/app/home/models/event.dart';
 import 'package:login_screen/app/home/tab_item.dart';
 import 'package:login_screen/app/home/tasks/tasks_page.dart';
+import 'package:login_screen/app/home/vendors/vendors_page.dart';
 import 'package:login_screen/services/database.dart';
 import 'package:provider/provider.dart';
 
@@ -43,7 +44,7 @@ class _HomePageState extends State<HomePage> {
       TabItem.guests: (_) => GuestsPage(database: widget.database, event: widget.event),
       TabItem.tasks: (_) => TasksPage(database: widget.database, event: widget.event),
       TabItem.budgets: (_) => BudgetsPage(database: widget.database, event: widget.event),
-      TabItem.vendors: (_) => Container(),
+      TabItem.vendors: (_) => VendorsPage(database: widget.database, event: widget.event),
     };
   }
 

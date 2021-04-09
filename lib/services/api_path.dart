@@ -12,4 +12,6 @@ class APIPath {
   static String budget(String uid, String eventId, String budgetId) => 'users/$uid/Events/$eventId/Budgets/$budgetId';
   static String budgets(String uid, String eventId) => 'users/$uid/Events/$eventId/Budgets';
 
+  static String vendor(String uid, String eventId, String vendorId) => 'users/$uid/Events/$eventId/Vendors/$vendorId';
+  static String vendors(String uid, String eventId) => 'users/$uid/Events/$eventId/Vendors';
 }
