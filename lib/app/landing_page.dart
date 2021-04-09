@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:login_screen/screens/temp_home_page.dart';
+import 'package:login_screen/app/Event/events_page.dart';
 import 'package:login_screen/services/auth.dart';
 import 'package:login_screen/services/database.dart';
 import 'package:login_screen/sing_in/sign_in_page.dart';
@@ -20,8 +20,8 @@ class LandingPage extends StatelessWidget {
           }
           return Provider<Database>(
             create: (_) => FirestoreDatabase(uid: user.uid),
-            // child: EventsPage(),
-            child: TempHomePage(),
+            child: EventsPage(),
+            // child: TempHomePage(),
           );
         }
         return Scaffold(
