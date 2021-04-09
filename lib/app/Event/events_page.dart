@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:login_screen/app/Event/edit_event_page.dart';
 import 'package:login_screen/app/Event/event_list_tile.dart';
+import 'package:login_screen/app/home/home_page.dart';
 import 'package:login_screen/app/home/models/event.dart';
 import 'package:login_screen/components/PDF.dart';
 import 'package:login_screen/components/list_items_builder.dart';
@@ -28,8 +29,7 @@ class _EventsPageState extends State<EventsPage> {
   TextEditingController searchController = TextEditingController();
   bool searchState = false;
   String _selection;
-  String _browserUrl =
-      "https://mahirshekh.blogspot.com/2021/03/event-planner-application-in-flutter.html";
+  String _browserUrl = "https://mahirshekh.blogspot.com/2021/03/event-planner-application-in-flutter.html";
 
   final Uri _emailLaunchUri = Uri(
       scheme: 'mailto',
@@ -289,9 +289,7 @@ class _EventsPageState extends State<EventsPage> {
               ),
             ],
             child: EventListTile(
-              event: event,
-              onTap: () => {},
-            ),
+                event: event, onTap: () => HomePage.show(context, event)),
           ),
         );
       },
@@ -341,9 +339,7 @@ class _EventsPageState extends State<EventsPage> {
               ),
             ],
             child: EventListTile(
-              event: event,
-              onTap: () => {},
-            ),
+                event: event, onTap: () => HomePage.show(context, event)),
           ),
         );
       },

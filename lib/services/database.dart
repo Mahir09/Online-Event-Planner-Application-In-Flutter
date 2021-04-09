@@ -1,4 +1,5 @@
 import 'package:login_screen/app/home/models/event.dart';
+import 'package:login_screen/app/home/models/guest.dart';
 import 'package:login_screen/services/api_path.dart';
 import 'package:login_screen/services/firestore_service.dart';
 import 'package:meta/meta.dart';
@@ -11,6 +12,10 @@ abstract class Database {
   Future<void> deleteEvent(Event event);
   Stream<List<Event>> eventsStream({@required String order});
   Stream<List<Event>> queryEventStream({@required String eventName});
+
+  Future<void> setGuest(Event event, Guest guest);
+  Future<void> deleteGuest(Event event, Guest job);
+  Stream<List<Guest>> guestsStream({@required String eventId});
 
 }
 
@@ -55,4 +60,23 @@ class FirestoreDatabase implements Database {
         path: APIPath.event(uid, eventId),
         builder: (data, documentId) => Event.fromMap(data, documentId),
       );
+
+  @override
+  Future<void> setGuest(Event event, Guest guest) => _service.setData(
+        path: APIPath.guest(uid, event.id, guest.id),
+        data: guest.toMap(),
+      );
+
+  @override
+  Future<void> deleteGuest(Event event, Guest guest) => _service.deleteData(
+        path: APIPath.guest(uid, event.id, guest.id),
+      );
+
+  @override
+  Stream<List<Guest>> guestsStream({@required String eventId}) =>
+      _service.collectionStream(
+        path: APIPath.guests(uid, eventId),
+        builder: (data, documentId) => Guest.fromMap(data, documentId),
+      );
+
 }
