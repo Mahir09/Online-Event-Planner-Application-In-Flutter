@@ -9,4 +9,7 @@ class APIPath {
   static String task(String uid, String eventId, String taskId) => 'users/$uid/Events/$eventId/Tasks/$taskId';
   static String tasks(String uid, String eventId) => 'users/$uid/Events/$eventId/Tasks';
 
+  static String budget(String uid, String eventId, String budgetId) => 'users/$uid/Events/$eventId/Budgets/$budgetId';
+  static String budgets(String uid, String eventId) => 'users/$uid/Events/$eventId/Budgets';
+
 }

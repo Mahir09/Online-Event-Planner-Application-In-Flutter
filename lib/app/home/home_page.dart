@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_screen/app/home/budget/budgets_page.dart';
 import 'package:login_screen/app/home/cupertino_home_scaffold.dart';
 import 'package:login_screen/app/home/guests/guests_page.dart';
 import 'package:login_screen/app/home/models/event.dart';
@@ -41,7 +42,7 @@ class _HomePageState extends State<HomePage> {
     return {
       TabItem.guests: (_) => GuestsPage(database: widget.database, event: widget.event),
       TabItem.tasks: (_) => TasksPage(database: widget.database, event: widget.event),
-      TabItem.budgets: (_) => Container(),
+      TabItem.budgets: (_) => BudgetsPage(database: widget.database, event: widget.event),
       TabItem.vendors: (_) => Container(),
     };
   }

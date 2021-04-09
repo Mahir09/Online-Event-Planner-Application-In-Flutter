@@ -1,3 +1,4 @@
+import 'package:login_screen/app/home/models/budget.dart';
 import 'package:login_screen/app/home/models/event.dart';
 import 'package:login_screen/app/home/models/guest.dart';
 import 'package:login_screen/app/home/models/task.dart';
@@ -21,6 +22,10 @@ abstract class Database {
   Future<void> setTask(Event event, Task task);
   Future<void> deleteTask(Event event, Task task);
   Stream<List<Task>> tasksStream({@required String eventId});
+
+  Future<void> setBudget(Event event, Budget budget);
+  Future<void> deleteBudget(Event event, Budget budget);
+  Stream<List<Budget>> budgetsStream({@required String eventId});
 
 }
 
@@ -100,5 +105,23 @@ class FirestoreDatabase implements Database {
       _service.collectionStream(
         path: APIPath.tasks(uid, eventId),
         builder: (data, documentId) => Task.fromMap(data, documentId),
+      );
+
+  @override
+  Future<void> setBudget(Event event, Budget budget) => _service.setData(
+        path: APIPath.budget(uid, event.id, budget.id),
+        data: budget.toMap(),
+      );
+
+  @override
+  Future<void> deleteBudget(Event event, Budget budget) => _service.deleteData(
+        path: APIPath.budget(uid, event.id, budget.id),
+      );
+
+  @override
+  Stream<List<Budget>> budgetsStream({@required String eventId}) =>
+      _service.collectionStream(
+        path: APIPath.budgets(uid, eventId),
+        builder: (data, documentId) => Budget.fromMap(data, documentId),
       );
 }
