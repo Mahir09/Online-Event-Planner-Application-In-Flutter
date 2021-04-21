@@ -15,12 +15,19 @@ Hi, I am Mahir Shekh and this application is event manager software project that
 List of Modules in Application : 
 
 1 > Login/Register Screen 
+
 2 > Events Screen
+
     a) Task Manager 
+    
     b) Guest Manager
+    
     c) Budget Manager
+    
     d) Vendors Manager
+    
 3 > User Info.
+
 
 Tools & Technology  Used In Project :
 
