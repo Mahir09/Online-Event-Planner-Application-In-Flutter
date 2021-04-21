@@ -1,6 +1,17 @@
-# event_manager_app
+# Event_Manager_App (Your Events!)
 
-Event Manager Application
+Online Event Manager Application In Flutter 
+
+Frontend : Flutter, Dart Programing
+Backend : Google Firebase
+
+Hello folks,
+
+Hi, I am Mahir Shekh and this application is event manager software project that serves the functionality of an event manager. The system allow registered user login and new user are allowed to register on the application. The system helps in the management of events, users and the aspects related to them. The Application provides most of the basic functionality required for an event, then the system allows the user to select date and time of event, place and the necessary things. All the data will be store in Google Fire-base. This is a process of organizing a professional and focused event, for a particular target audience. It involves planning, budgeting, organizing and executing events such as wedding, musical concerts, corporate seminars, exhibitions, birthday celebrations, theme parties, etc.
+
+
+![image](https://user-images.githubusercontent.com/72331249/115496556-8a545780-a287-11eb-8958-672e66373726.png)
+
 
 ## Getting Started
 
