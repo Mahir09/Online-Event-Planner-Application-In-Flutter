@@ -1,0 +1,46 @@
+name: event_manager_app
+description: Event Manager Application
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  cupertino_icons: ^1.0.2
+  firebase_core: 0.5.2
+  firebase_auth: 0.18.2
+  google_sign_in: 4.5.6
+  cloud_firestore: 0.14.3
+  flutter_login_facebook: 0.4.0+1
+  provider: 4.3.2+2
+  modal_progress_hud: ^0.1.3
+  intl: 0.16.1
+  flutter_slidable: ^0.5.7
+  pdf: ^3.1.0
+  path_provider: ^2.0.1
+  flutter_full_pdf_viewer: ^1.0.6
+  printing:
+  open_file:
+  url_launcher: ^6.0.3
+  flutter_svg:
+  simple_animations: ^1.3.3
+  bottom_navy_bar: ^6.0.0
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/icons/
